@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -203,4 +203,324 @@
   </main>
 </body>
 
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRCIS: Ground and Aerial Systems in Urban Search and Rescue Operations</title>
+
+  <!-- Optional: webfont for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --brand1: #3b82f6;
+      --brand2: #06b6d4;
+      --brand3: #10b981;
+      --border: #e5e7eb;
+      --shadow: 0 6px 18px rgba(0,0,0,.05);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: -999px;
+    }
+    .skip-link:focus {
+      left: 8px; top: 8px;
+      background: #111;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      z-index: 1000;
+    }
+
+    header {
+      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #10b981 100%);
+      color: #fff;
+      padding: 1.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header .logo {
+      width: 90px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15);
+    }
+    header h1 {
+      font-size: 1.6rem;
+      margin: 0;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    header .subtitle {
+      font-size: .9rem;
+      opacity: .95;
+      text-align: center;
+    }
+
+    /* Main layout */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #0f6ed8;
+      margin: 1.5rem 0 0.75rem;
+      text-align: left;
+    }
+
+    /* Cards grid layout for milestones and team */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 .5rem;
+      font-size: 1.05rem;
+    }
+
+    .card p { color: var(--muted); margin: 0 0 .75rem; }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .5rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #0b1e2a;
+      background: #eef2f7;
+      border: 1px solid #d7e0ea;
+      font-weight: 500;
+      transition: transform .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .link-like { text-decoration: none; }
+
+    /* Section-specific styles */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* Simple responsive tweaks for small screens */
+    @media (max-width: 680px) {
+      header { padding: 1rem; }
+      header h1 { font-size: 1.3rem; }
+    }
+
+    /* Optional dark mode (CSS only toggle via a class on body) */
+    body.dark {
+      --bg: #0b1020;
+      --card: #141a2b;
+      --text: #eef2ff;
+      --muted: #a5acc8;
+      --border: #23283f;
+      --shadow: 0 8px 20px rgba(0,0,0,.4);
+      background: linear-gradient(#0b1020, #0a0f1e);
+    }
+    /* Button to toggle dark mode (inline JS will toggle class) */
+    .theme-toggle {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      padding: .5rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header role="banner" aria-label="Site header">
+    <img src="SRCIS-300.png" alt="SRCIS Logo" class="logo" />
+    <div style="text-align:center; flex:1;">
+      <h1>SRCIS: Ground & Aerial Systems in Urban Search & Rescue</h1>
+      <div class="subtitle">Coordinated Intelligence Systems for SAR operations</div>
+    </div>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">Dark mode</button>
+  </header>
+
+  <main id="content" role="main">
+    <!-- Team section -->
+    <section aria-labelledby="team-title" class="card" style="margin-bottom:1rem;">
+      <h2 id="team-title" style="margin:0 0 .5rem; font-size:1.25rem; color:#0f6ed8;">Team Members & Contact</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+        <article class="card" aria-labelledby="member-yensley">
+          <h3 id="member-yensley" style="margin:0 0 .25rem;">Yavanni Ensley</h3>
+          <a class="btn" href="mailto:yensley2022@my.fit.edu" aria-label="Email Yavanni Ensley">Email</a>
+        </article>
+
+        <article class="card" aria-labelledby="member-jollivierre">
+          <h3 id="member-jollivierre" style="margin:0 0 .25rem;">Jaylin Ollivierre</h3>
+          <a class="btn" href="mailto:jollivierre2022@my.fit.edu" aria-label="Email Jaylin Ollivierre">Email</a>
+        </article>
+
+        <article class="card" aria-labelledby="member-cho">
+          <h3 id="member-cho" style="margin:0 0 .25rem;">Younghoon Cho</h3>
+          <a class="btn" href="mailto:ycho2021@my.fit.edu" aria-label="Email Younghoon Cho">Email</a>
+        </article>
+      </div>
+
+      <hr style="border:0; border-top:1px solid #e5e7eb; margin:1rem 0;">
+      <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+        <article class="card" aria-labelledby="faculty-advisor">
+          <h3 id="faculty-advisor" style="margin:0 0 .25rem;">Faculty Advisor</h3>
+          <p style="margin:0; color:var(--muted);">Thomas Eskridge</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Semester milestones (cards) -->
+    <section aria-labelledby="semester-title" class="section" id="semesters">
+      <h2 id="semester-title" style="margin:0 0 1rem; color:#0f6ed8;">First Semester</h2>
+
+      <div class="grid" aria-label="First semester milestones">
+        <article class="card" aria-labelledby="plan-sep3">
+          <h3 id="plan-sep3" style="margin:0 0 .4rem;">Plan (Sep 3)</h3>
+          <p style="margin:0 0 .5rem; color:var(--muted);">Documents &amp; Presentation</p>
+          <div class="btns">
+            <a class="btn" href="files/plan1.pdf" target="_blank" rel="noopener">Plan</a>
+            <a class="btn" href="files/plan1Pres.pdf" target="_blank" rel="noopener">Presentation</a>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="milestone1">
+          <h3 id="milestone1" style="margin:0 0 .4rem;">Milestone 1 (Sep 29)</h3>
+          <p style="margin:0 0 .5rem; color:var(--muted);">Requirements, Design, Test</p>
+          <div class="btns">
+            <a class="btn" href="files/requirements.pdf" target="_blank" rel="noopener">Requirement</a>
+            <a class="btn" href="files/design.pdf" target="_blank" rel="noopener">Design</a>
+            <a class="btn" href="files/test.pdf" target="_blank" rel="noopener">Test</a>
+            <a class="btn" href="files/milestone1.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="btn" href="files/eval1.pdf" target="_blank" rel="noopener">Progress Evaluation</a>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="milestone2">
+          <h3 id="milestone2" style="margin:0 0 .4rem;">Milestone 2 (Oct 27)</h3>
+          <div class="btns" style="margin-top:.25rem;">
+            <a class="btn" href="files/milestone2.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="btn" href="files/eval2.pdf" target="_blank" rel="noopener">Progress Evaluation</a>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="milestone3">
+          <h3 id="milestone3" style="margin:0 0 .4rem;">Milestone 3 (Nov 24)</h3>
+          <div class="btns" style="margin-top:.25rem;">
+            <a class="btn" href="files/milestone3.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="btn" href="files/eval3.pdf" target="_blank" rel="noopener">Progress Evaluation</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="semester2-title" class="section" id="semesters2" style="margin-top:2rem;">
+      <h2 id="semester2-title" style="margin:0 0 1rem; color:#0f6ed8;">Second Semester</h2>
+
+      <div class="grid" aria-label="Second semester milestones">
+        <article class="card" aria-labelledby="plan2">
+          <h3 id="plan2" style="margin:0 0 .4rem;">Plan (Jan 26)</h3>
+          <div class="btns">
+            <a class="btn" href="files/plan2.pdf" target="_blank" rel="noopener">Plan</a>
+            <a class="btn" href="files/plan2Pres.pdf" target="_blank" rel="noopener">Presentation</a>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="milestone4">
+          <h3 id="milestone4" style="margin:0 0 .4rem;">Milestone 4 (Feb 23)</h3>
+          <div class="btns">
+            <a class="btn" href="files/milestone4.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="btn" href="files/eval4.pdf" target="_blank" rel="noopener">Progress Evaluation</a>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="milestone5">
+          <h3 id="milestone5" style="margin:0 0 .4rem;">Milestone 5 (Mar 30)</h3>
+          <div class="btns">
+            <a class="btn" href="files/poster.pdf" target="_blank" rel="noopener">Poster</a>
+            <a class="btn" href="files/milestone5.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="btn" href="files/eval5.pdf" target="_blank" rel="noopener">Progress Evaluation</a>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="milestone6">
+          <h3 id="milestone6" style="margin:0 0 .4rem;">Milestone 6 (Apr 20)</h3>
+          <div class="btns">
+            <a class="btn" href="files/userManual.pdf" target="_blank" rel="noopener">User/Developer Manual</a>
+            <a class="btn" href="files/demoVideo.jpg" target="_blank" rel="noopener">Demo Video</a>
+            <a class="btn" href="files/milestone6.pdf" target="_blank" rel="noopener">Presentation</a>
+            <a class="btn" href="files/eval6.pdf" target="_blank" rel="noopener">Progress Evaluation</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align:center; padding: 1.5rem 0; color:var(--muted);">
+    © SRCIS. Made with care. If you need this in another language, tell me which language and I’ll translate.
+  </footer>
+
+  <script>
+    // Tiny enhancement: toggle dark mode
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      toggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+    });
+  </script>
+</body>
 </html>
